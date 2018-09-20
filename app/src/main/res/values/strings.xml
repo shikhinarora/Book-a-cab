@@ -2,4 +2,6 @@
     <string name="app_name">Book a cab</string>
     <string name="title_activity_home">ActivityHome</string>
     <string name="title_activity_basic">ActivityBasic</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="title_activity_retrofit">Activity Retrofit</string>
 </resources>

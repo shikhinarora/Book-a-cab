@@ -2,11 +2,13 @@ package com.technard.bookacab.ui.activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.technard.bookacab.R;
@@ -44,13 +46,21 @@ public class ActivityBasic extends BaseActivity {
         FragmentBasic frag = new FragmentBasic();
         android.support.v4.app.FragmentTransaction ft = fm.beginTransaction();
         ft.add(R.id.fl_basic, frag).addToBackStack("basic").commit();
-
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_basic, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.mb_sync:
+                Intent intent = new Intent(ActivityBasic.this, ActivityRetrofit.class);
+                startActivity(intent);
+        }
         return true;
     }
 }
