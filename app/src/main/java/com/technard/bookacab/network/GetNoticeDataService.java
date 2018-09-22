@@ -2,6 +2,7 @@ package com.technard.bookacab.network;
 
 import com.technard.bookacab.pojo.model.Notice;
 import com.technard.bookacab.pojo.model.NoticeList;
+import com.technard.bookacab.pojo.model.WikipediaData;
 
 import java.util.List;
 import java.util.Map;
@@ -23,6 +24,9 @@ import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 public interface GetNoticeDataService {
+
+    @GET("")
+    Call<WikipediaData> getWikiData();
 
     @GET("bins/1bsqcn/")
     Call<NoticeList> getNoticeData();

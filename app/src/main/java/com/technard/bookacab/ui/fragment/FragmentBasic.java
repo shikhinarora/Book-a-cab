@@ -3,6 +3,7 @@ package com.technard.bookacab.ui.fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +45,7 @@ public class FragmentBasic extends BaseFragment implements IBasicFrag{
             @Override
             public void onClick(View view) {
                 String userText = et.getText().toString();
-                presenter.modifyTextAndUpdate(userText);
+                presenter.fetchDataFromWikipedia(userText);
             }
         });
     }
@@ -57,5 +58,15 @@ public class FragmentBasic extends BaseFragment implements IBasicFrag{
     @Override
     public void updateText(String text) {
         tv1.setText(text);
+    }
+
+    @Override
+    public void showProgress() {
+        Snackbar.make(view, "Fetching data...", Snackbar.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void hideProgress() {
+        Snackbar.make(view, "Complete", Snackbar.LENGTH_SHORT).show();
     }
 }
